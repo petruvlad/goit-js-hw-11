@@ -1,6 +1,6 @@
 import axios from 'axios';
 import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+import SimpleLightbox from 'simplelightbox/dist/simple-lightbox.esm.js';
 import Notiflix from 'notiflix';
 
 const apiKey = '40035722-2407ce7b1ab62bda679cb58b1';
@@ -13,7 +13,7 @@ const loadMoreBtn = document.querySelector('.load-more');
 
 const handleSearch = async event => {
   event.preventDefault();
-  page = 1; // Reset page when a new search is performed
+  page = 1; 
   searchQuery = event.target.elements.searchQuery.value;
   await fetchImages();
 };
@@ -103,7 +103,7 @@ const smoothScroll = () => {
 searchForm.addEventListener('submit', handleSearch);
 loadMoreBtn.addEventListener('click', handleLoadMore);
 
-const lightbox = new SimpleLightbox('.gallery a', {
+const lightbox = new SimpleLightbox('.gallery', {
   captionsData: 'alt',
   captionDelay: 250,
 });
